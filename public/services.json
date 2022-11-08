@@ -1,0 +1,44 @@
+[
+    {
+        "title": "Tour Management Service",
+        "image":"https://i.ibb.co/F4YLRNr/travel-management-service.jpg",
+        "price": "150.00",
+        "ratings": "4.5",
+        "details": "Tour management is all about meeting customer requirement and expectations. Tour Management services include choosing travel destinations, booking tours and arranging accommodation as per the needs of the clients.If you are enthusiastic about exploring places and looking for a career option that involves business, travel and customer relations, then Travel and Tourism can be a right option. If you are enthusiastic about exploring places and looking for a career option that involves business, travel and customer relations, then Travel and Tourism can be a right option."
+    },
+    {
+        "title": "Expense Management Service",
+        "image":"https://i.ibb.co/4gtSQqJ/cost-management.jpg",
+        "price": "145.00",
+        "ratings": "5.00",
+        "details": "Travel and expense management allows organizations to control spending while making travel more convenient for employers. Organizations can maintain their expenses by tracking and reporting corporate travel behaviors. Using a travel management company is a way to effectively manage travel and expenses for your business. It can also make corporate travel more human by personalizing the experience and making it easier for the traveler. A travel policy is a unique document that allows your company to have a meaningful, coordinated, and dependable travel system."
+    },
+    {
+        "title": "Guide Service",
+        "image":"https://i.ibb.co/2YcKdhr/tour-guide.jpg",
+        "price": "250.00",
+        "ratings": "5.00",
+        "details": "As a tour operator, each day is filled with a variety of responsibilities. From juggling the day-to-day operations to helping guests to tour guide management, the job description can be long. One of the most important resources you'll dedicate time to will be to your tour guides. As the face of your business, the quality of experience your tour company provides is directly connected to the skills and traits your tour guides possess. Taking the time to educate, coach and engage your tour guides will create an incredible team that offers outstanding experiences. Wondering how to best support your tour guides."
+    },
+    {
+        "title": "Hotel Booking",
+        "image":"https://i.ibb.co/9p5wQ5J/tour-hotel-service.jpg",
+        "price": "120.00",
+        "ratings": "5.00",
+        "details": "For the longest time, people have been planning their vacations by walking into a well-stocked room surrounded by maps and brochures. Greeted by an agent offering a cup of coffee, they would begin the discussion about budgets and desired experiences. When online travel agencies started slowly but surely replacing traditional shops in 2005, Internet-adept travelers had learned to book their trips on their home computers. But rolling out advanced booking engines with intricate search and pricing logic or investing 6-digit budgets into back-office systems are the paths of mature businesses."
+    },
+    {
+        "title": "Ticket Booking",
+        "image":"https://i.ibb.co/P5JSbNS/tour-ticket-service.png",
+        "price": "100.00",
+        "ratings": "5.00",
+        "details": "When online travel agencies started slowly but surely replacing traditional shops in 2005, Internet-adept travelers had learned to book their trips on their home computers. But rolling out advanced booking engines with intricate search and pricing logic or investing 6-digit budgets into back-office systems are the paths of mature businesses. As a tour operator, each day is filled with a variety of responsibilities. From juggling the day-to-day operations to helping guests to tour guide management, the job description can be long."
+    },
+    {
+        "title": "Photography Service",
+        "image":"https://i.ibb.co/VWQ5FPJ/tour-photo-service.jpg",
+        "price": "180.00",
+        "ratings": "4.5",
+        "details": "High quality photography is critical in capturing and engaging the attention of your online audience. Professionally shot, recent photos of your team and location help you build trust online. A library of high-resolution images including event photography, lifestyle photography and corporate photography empowers both your digital marketing strategy and your website's visual storytelling. Vibrant photos help people remember you and what you do. It's been shown that people who hear information are only likely to remember 10% of that info 3 days later — compared to remembering 65% of the info 3 days later when shown with a relevant image."
+    }
+]
