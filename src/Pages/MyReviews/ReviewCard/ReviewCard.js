@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
 import { FaStar, FaTimesCircle } from 'react-icons/fa';
 
 const ReviewCard = ({ review, handleReviewDelete }) => {
-    const { _id, name, photo, email, service, rating, reviewDetails } = review;
+    const { _id, name, photo, service, rating, reviewDetails } = review;
     const [reviewService, setReviewService] = useState({});
+
+    const [updateReview, setUpdateReview] = useState(review);
+    // console.log(updateReview);
 
     useEffect(() => {
         fetch(`http://localhost:5000/services/${service}`)
@@ -13,16 +17,33 @@ const ReviewCard = ({ review, handleReviewDelete }) => {
             })
     }, [service]);
 
-    // const handleReviewUpdateChange = event => {
-    //     event.preventDefault();
-    //     const form = event.target;
-    //     const name = form.name.value;
-    //     const photo = form.image.value;
-    //     const rating = form.ratings.value;
-    //     const reviewDetails = form.reviewDetails.value;
+    const handleInputChange = event =>{
+        const field = event.target.name;
+        const value = event.target.value;
+        // console.log(field, value)
+        const newReview = {...updateReview};
+        newReview[field] = value;
+        setUpdateReview(newReview);
+    }
 
-    //     setUpdatedReview(service, name, email, photo, service, rating, reviewDetails);
-    // }
+    const handleReviewUpdate = event => {
+        console.log(updateReview)
+        
+        fetch(`http://localhost:5000/reviews/${_id}`,{
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(updateReview)
+
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.modifiedCount){
+                toast.success('Review Updated Successfully')
+            }
+        })
+    };
 
     return (
         <div className="flex flex-col md:w-3/4 mx-auto p-6 space-y-6 overflow-hidden rounded-lg shadow-lg dark:text-gray-100 border my-5">
@@ -51,22 +72,22 @@ const ReviewCard = ({ review, handleReviewDelete }) => {
                             <label htmlFor="my-modal-6" ><FaTimesCircle className='text-3xl text-red-500 hover:text-warning' /></label>
                         </div>
                         <h3 className="font-bold text-lg text-green-500">Edit Your Review</h3>
-                        <form>
+                        <form onSubmit={handleReviewUpdate}>
                             <div className='grid grid-cols-1 lg:grid-cols-2 gap-4'>
                                 <div>
                                     <label className="block font-semibold  ml-5 sm:ml-5 md:ml-0">Your Name</label>
-                                    <input name="name" type="text" placeholder="Full Name" className="input input-bordered w-full" defaultValue={name} required />
+                                    <input onBlur={handleInputChange} name="name" type="text" placeholder="Full Name" className="input input-bordered w-full" defaultValue={name} required />
                                 </div>
                                 <div>
                                     <label className="block font-semibold ml-5 sm:ml-5 md:ml-0">Provide Photo URL</label>
-                                    <input name="image" type="text" placeholder="Image URL" className="input  input-bordered w-full" defaultValue={photo} required />
+                                    <input onBlur={handleInputChange} name="image" type="text" placeholder="Image URL" className="input  input-bordered w-full" defaultValue={photo} required />
                                 </div>
                                 <div>
                                     <label className="block font-semibold ml-5 sm:ml-5 md:ml-0">Rating Value Out of 5</label>
-                                    <input name="ratings" type="text" placeholder="Provide Rating Value" className="input input-bordered w-2/3" required />
+                                    <input onBlur={handleInputChange} name="rating" type="text" placeholder="Provide Rating Value" className="input input-bordered w-5/6" required />
                                 </div>
                             </div>
-                            <textarea name="reviewDetails" className="textarea textarea-bordered h-30 w-1/3 mt-6" placeholder="Review comment here" required></textarea>
+                            <textarea onBlur={handleInputChange} name="reviewDetails" className="textarea textarea-bordered h-30 w-1/3 mt-6" placeholder="Review comment here" defaultValue={reviewDetails} required></textarea>
                             <br />
                             <input className='modal-action btn btn-outline btn-primary' type="submit" value="Submit Review" />
                         </form>
