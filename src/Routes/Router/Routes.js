@@ -3,6 +3,7 @@ import Main from '../../layouts/Main';
 import Blogs from '../../Pages/Blogs/Blogs';
 import Home from '../../Pages/Home/Home';
 import LogIn from '../../Pages/Login/LogIn';
+import MyReviews from '../../Pages/MyReviews/MyReviews';
 import ReviewForm from '../../Pages/ReviewForm/ReviewForm';
 import ServiceDetailCard from '../../Pages/ServiceDetailCard/ServiceDetailCard';
 import Services from '../../Pages/Services/Services';
@@ -51,6 +52,10 @@ export const routes = createBrowserRouter([
             {
                 path: '/signUp',
                 element: <SignUp></SignUp>
+            },
+            {
+                path: '/myReviews',
+                element: <MyReviews></MyReviews>
             }
         ]
     }
