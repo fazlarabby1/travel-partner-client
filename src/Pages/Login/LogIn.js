@@ -1,19 +1,29 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
+import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
 const LogIn = () => {
-    const {logIn} = useContext(AuthContext);
+    const [error, setError] = useState(null)
+    const { logIn } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
     const from = location?.state?.from?.pathname || '/';
 
-    const handleLogin = event =>{
+    const handleLogin = event => {
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email,password);
+
+        logIn(email, password)
+            .then(result => {
+                const user = result.user;
+                toast.success('Congratulation Successfully Logged In');
+                form.reset();
+                navigate(from, { replace: true });
+            })
+            .catch(error => setError(error))
     }
 
     return (
@@ -24,13 +34,17 @@ const LogIn = () => {
                     <div className="space-y-4">
                         <div className="space-y-2">
                             <label className="block text-sm">Email address</label>
-                            <input type="email" name="email" id="email" placeholder="Your Email" className="w-full px-3 py-2 border rounded-md border-gray-70 text-black focus:border-violet-400" required/>
+                            <input type="email" name="email" id="email" placeholder="Your Email" className="w-full px-3 py-2 border rounded-md border-gray-70 text-black focus:border-violet-400" required />
                         </div>
                         <div className="space-y-2">
-                                <label className="text-sm">Password</label>
-                            <input type="password" name="password" id="password" placeholder="Your Password" className="w-full px-3 py-2 border rounded-md border-gray-700 text-black focus:border-violet-400" required/>
+                            <label className="text-sm">Password</label>
+                            <input type="password" name="password" id="password" placeholder="Your Password" className="w-full px-3 py-2 border rounded-md border-gray-700 text-black focus:border-violet-400" required />
                         </div>
                         <Link href="#" className="text-xs hover:underline text-gray-400">Forgot password?</Link>
+                        {
+                            error &&
+                            <p className='text-warning text-xl'>Error: <span className=''>{error.message}</span></p>
+                        }
                     </div>
                     <div className='flex justify-center'>
                         <button className="w-1/2 px-8 py-3 font-semibold rounded-md bg-violet-400 text-gray-900">Log in</button>
