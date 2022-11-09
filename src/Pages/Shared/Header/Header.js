@@ -9,7 +9,7 @@ const Header = () => {
         <NavLink className={({ isActive }) => isActive ? 'btn btn-ghost underline underline-offset-4' : 'btn btn-ghost'} to='/blogs'>Blog</NavLink>
     </>
     return (
-        <div className="navbar text-white h-30 py-6 mb-12 bg-sky-700 shadow-2xl rounded-t-none rounded px-5">
+        <div className="navbar text-white h-30 py-6 mb-8 bg-sky-700 shadow-2xl rounded-t-none rounded px-5">
             <div className="navbar-start">
                 <div className="dropdown text-black">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">

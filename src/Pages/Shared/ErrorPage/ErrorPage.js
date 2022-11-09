@@ -4,7 +4,7 @@ import errorImg from '../../../assets/images/error.png'
 
 const ErrorPage = () => {
     const error = useRouteError();
-    // console.log(error);
+    
     return (
         <div>
             {

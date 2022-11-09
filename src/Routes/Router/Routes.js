@@ -2,6 +2,8 @@ import { createBrowserRouter } from 'react-router-dom';
 import Main from '../../layouts/Main';
 import Blogs from '../../Pages/Blogs/Blogs';
 import Home from '../../Pages/Home/Home';
+import ReviewForm from '../../Pages/ReviewForm/ReviewForm';
+import ServiceDetailCard from '../../Pages/ServiceDetailCard/ServiceDetailCard';
 import Services from '../../Pages/Services/Services';
 import ErrorPage from '../../Pages/Shared/ErrorPage/ErrorPage';
 
@@ -21,13 +23,24 @@ export const routes = createBrowserRouter([
                 element: <Home></Home>
             },
             {
+                path: '/services',
+                loader: () => fetch("http://localhost:5000/services"),
+                element: <Services></Services>
+            },
+            {
                 path: '/blogs',
                 element: <Blogs></Blogs>
             },
             {
-                path: '/services',
-                element: <Services></Services>
+                path: '/services/:id',
+                loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`),
+                element: <ServiceDetailCard></ServiceDetailCard>
             },
+            {
+                path: '/provideReview/:id',
+                loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`),
+                element: <ReviewForm></ReviewForm>
+            }
         ]
     }
 ])
