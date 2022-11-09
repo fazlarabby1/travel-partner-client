@@ -21,7 +21,7 @@ const ReviewForm = () => {
         const rating = form.ratings.value;
         const reviewDetails = form.reviewDetails.value;
 
-        console.log(name,image,email,ratings,reviewDetails)
+        // console.log(name,image,email,ratings,reviewDetails)
 
         const review = {
             service: _id,
@@ -35,6 +35,7 @@ const ReviewForm = () => {
         fetch('http://localhost:5000/reviews',{
             method: 'POST',
             headers: {
+                authorization: `Bearer ${localStorage.getItem('travel-token')}`,
                 'content-type': 'application/json'
             },
             body: JSON.stringify(review)

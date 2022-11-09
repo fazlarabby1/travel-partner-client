@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { setJWTAuthToken } from '../../api/JWTapi';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import useTitle from '../../hooks/useDynamicTitle';
 
@@ -21,6 +22,7 @@ const LogIn = () => {
         logIn(email, password)
             .then(result => {
                 const user = result.user;
+                setJWTAuthToken(user);
                 form.reset();
                 setError('')
                 toast.success('Congratulation Successfully Logged In');
@@ -33,6 +35,7 @@ const LogIn = () => {
         googleSignIn()
         .then(result => {
             const user = result.user;
+            setJWTAuthToken(user);
             toast.success('Successfully Logged In With Google');
             navigate(from, { replace: true });  
         })
