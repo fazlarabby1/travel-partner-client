@@ -1,3 +1,35 @@
+## About Travel Partner Project
+
+*********************************
+Live Links and Repository Links
+
+
+*********************************
+Dependencies
+
+For Client Site:
+# react, react-router, react-hot-toast, react-icons, react-photo-view, firebase, tailwind, daisyUI, and mamba UI.
+
+For Server Site:
+# mongoDB, cors, dotenv, express, and jsonwebtoken.
+
+*********************************
+The project is based on Travel Management System. Here, I have shown services that can be executed by a single person. On other hand, you can call this a personal website.
+
+*********************************
+In the home page, there is a navbar at the top. Under that, I have used carousel. Then, I have shown a glimpse of my services by showing just 3 services. And at the bottom of the home page there is a footer.
+
+*********************************
+In the services page, I have show all the services in the left side, and there is a review section on the right side that shows all the reviews of different persons. There is a link to provide review as well. However, to provide review, one must login first.
+
+*********************************
+The login user will see more options in the NavBar than other users. There is a My Reviews option which will take the user to a page where the person will see all his reviews on different services.
+Then there is another option called Add Service, which contains a form. A logged in user can add different services from that page.
+There is a Blogs page, which contains some blogs.
+
+*********************************
+I have implemented JWT access token in this project as well.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
