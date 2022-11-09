@@ -5,20 +5,27 @@ import logo from '../../../assets/images/logo.png';
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
 
 const Header = () => {
-    const {user, logOut} = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
 
-    const handleSignOut = () =>{
+    const handleSignOut = () => {
         logOut()
-        .then(()=>{
-            toast.success('Successfully Logged Out')
-        })
-        .catch(error => console.error(error))
+            .then(() => {
+                toast.success('Successfully Logged Out')
+            })
+            .catch(error => console.error(error))
     }
 
     const navItems = <>
         <NavLink className={({ isActive }) => isActive ? 'btn btn-ghost underline underline-offset-4' : 'btn btn-ghost'} to='/'>Home</NavLink>
         <NavLink className={({ isActive }) => isActive ? 'btn btn-ghost underline underline-offset-4' : 'btn btn-ghost'} to='/services'>Services</NavLink>
         <NavLink className={({ isActive }) => isActive ? 'btn btn-ghost underline underline-offset-4' : 'btn btn-ghost'} to='/blogs'>Blog</NavLink>
+        {
+            user &&
+            <>
+                <NavLink className={({ isActive }) => isActive ? 'btn btn-ghost underline underline-offset-4' : 'btn btn-ghost'} to='/myReviews'>My Reviews</NavLink>
+                <NavLink className={({ isActive }) => isActive ? 'btn btn-ghost underline underline-offset-4' : 'btn btn-ghost'} to='/addService'>Add Service</NavLink>
+            </>
+        }
         {
             user?.photoURL && <img className='rounded-full w-10' src={user?.photoURL} style={{ height: '40px' }} alt="" />
         }
@@ -44,11 +51,11 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-               {
-                user ?
-                <button onClick={handleSignOut} className="btn btn-outline btn-warning">Log Out</button>
-                :
-                <Link to='/login'><button className="btn btn-outline btn-warning">Log In</button></Link>
+                {
+                    user ?
+                        <button onClick={handleSignOut} className="btn btn-outline btn-warning">Log Out</button>
+                        :
+                        <Link to='/login'><button className="btn btn-outline btn-warning">Log In</button></Link>
                 }
             </div>
         </div>
