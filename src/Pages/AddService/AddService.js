@@ -57,7 +57,7 @@ return (
                 </div>
                 <div>
                     <label className="block font-semibold ml-5 sm:ml-5 md:ml-0">Service Cost</label>
-                    <input name="cost" type="text" placeholder="Service Cost" className="input input-bordered w-full" />
+                    <input name="cost" type="text" placeholder="Service Cost" className="input input-bordered w-full" required/>
                 </div>
                 <div>
                     <label className="block font-semibold ml-5 sm:ml-5 md:ml-0">Rating Value Out of 5</label>

@@ -10,7 +10,7 @@ const ReviewForm = () => {
     const navigate = useNavigate();
 
     const service = useLoaderData();
-    const { _id, title, image, ratings } = service;
+    const { _id, title } = service;
 
     const handleReview = event => {
         event.preventDefault();
@@ -63,7 +63,7 @@ const ReviewForm = () => {
                         </div>
                         <div>
                             <label className="block font-semibold ml-5 sm:ml-5 md:ml-0">Provide Photo URL</label>
-                            <input name="image" type="text" placeholder="Image URL" className="input  input-bordered w-full" defaultValue={user?.photoURL} required />
+                            <input name="image" type="text" placeholder="Image URL" className="input input-bordered w-full" defaultValue={user?.photoURL} required />
                         </div>
                         <div>
                             <label className="block font-semibold ml-5 sm:ml-5 md:ml-0">Email Address</label>
