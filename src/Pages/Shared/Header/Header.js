@@ -27,7 +27,7 @@ const Header = () => {
             </>
         }
         {
-            user?.photoURL && <img className='rounded-full w-10' src={user?.photoURL} style={{ height: '40px' }} alt="" />
+            user?.photoURL && <img title={user?.email} className='rounded-full w-10' src={user?.photoURL} style={{ height: '40px' }} alt="" />
         }
     </>
     return (
