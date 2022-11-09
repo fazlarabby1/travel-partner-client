@@ -4,7 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
 const LogIn = () => {
-    const [error, setError] = useState(null)
+    const [error, setError] = useState('')
     const { logIn } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
@@ -19,8 +19,9 @@ const LogIn = () => {
         logIn(email, password)
             .then(result => {
                 const user = result.user;
-                toast.success('Congratulation Successfully Logged In');
                 form.reset();
+                setError('')
+                toast.success('Congratulation Successfully Logged In');
                 navigate(from, { replace: true });
             })
             .catch(error => setError(error))

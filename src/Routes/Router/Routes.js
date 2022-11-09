@@ -8,6 +8,7 @@ import ServiceDetailCard from '../../Pages/ServiceDetailCard/ServiceDetailCard';
 import Services from '../../Pages/Services/Services';
 import ErrorPage from '../../Pages/Shared/ErrorPage/ErrorPage';
 import SignUp from '../../Pages/SignUp/SignUp';
+import PrivateRoute from '../PrivateRoute/PrivateRoute';
 
 export const routes = createBrowserRouter([
     {
