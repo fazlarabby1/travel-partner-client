@@ -43,7 +43,7 @@ const ServiceDetailCard = () => {
                 </p>
                 <div>
                     {
-                        reviews.map(review => <ReviewSummary key={review._id} review={review}></ReviewSummary>)
+                        reviews.sort((a,b)=> a.reviewTime < b.reviewTime ? 1 : -1).map(review => <ReviewSummary key={review._id} review={review}></ReviewSummary>)
                     }
                 </div>
             </div>

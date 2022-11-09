@@ -14,6 +14,7 @@ const ReviewForm = () => {
 
     const handleReview = event => {
         event.preventDefault();
+        const reviewTime = new Date().getTime();
         const form = event.target;
         const name = form.name.value;
         const photo = form.image.value;
@@ -29,7 +30,8 @@ const ReviewForm = () => {
             email,
             photo,
             rating,
-            reviewDetails
+            reviewDetails,
+            reviewTime
         }
 
         fetch('http://localhost:5000/reviews',{

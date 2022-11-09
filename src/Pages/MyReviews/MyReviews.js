@@ -46,7 +46,7 @@ const MyReviews = () => {
                 (reviews.length > 0) ?
                     <div>
                         {
-                            reviews.map(review => <ReviewCard key={review._id} review={review} handleReviewDelete={handleReviewDelete}></ReviewCard>)
+                            reviews.sort((a,b)=> a.reviewTime<b.reviewTime ? 1 : -1).map(review => <ReviewCard key={review._id} review={review} handleReviewDelete={handleReviewDelete}></ReviewCard>)
                         }
                     </div>
                     :
