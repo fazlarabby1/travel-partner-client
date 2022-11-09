@@ -2,8 +2,10 @@ import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
+import useTitle from '../../hooks/useDynamicTitle';
 
 const LogIn = () => {
+    useTitle('LogIn-')
     const [error, setError] = useState('')
     const { logIn, googleSignIn } = useContext(AuthContext);
     const location = useLocation();

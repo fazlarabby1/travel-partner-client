@@ -1,8 +1,10 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import useTitle from '../../hooks/useDynamicTitle';
 import ServiceSummary from '../Shared/ServiceSummary/ServiceSummary';
 
 const Services = () => {
+    useTitle('Services-')
     const services = useLoaderData();
 
     return (

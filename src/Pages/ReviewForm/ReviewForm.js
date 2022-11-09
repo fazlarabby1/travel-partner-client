@@ -2,13 +2,15 @@ import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { useLoaderData, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
+import useTitle from '../../hooks/useDynamicTitle';
 
 const ReviewForm = () => {
+    useTitle('Provide Review-')
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
 
     const service = useLoaderData();
-    const { _id, title, image, ratings, details, price } = service;
+    const { _id, title, image, ratings } = service;
 
     const handleReview = event => {
         event.preventDefault();

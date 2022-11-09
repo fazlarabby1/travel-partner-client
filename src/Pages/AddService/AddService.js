@@ -1,8 +1,10 @@
 import React from 'react';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import useTitle from '../../hooks/useDynamicTitle';
 
 const AddService = () => {
+    useTitle('Add Service-')
     const navigate = useNavigate();
 
     const handleAddService = event => {
@@ -21,7 +23,7 @@ const AddService = () => {
             ratings,
             details
         }
-        
+
         fetch('http://localhost:5000/services', {
             method: 'POST',
             headers: {

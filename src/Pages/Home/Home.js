@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import useTitle from '../../hooks/useDynamicTitle';
 import ServiceSummary from '../Shared/ServiceSummary/ServiceSummary';
 import Slider from './Slider/Slider';
 
 const Home = () => {
+    useTitle('')
     const services = useLoaderData();
 
     return (

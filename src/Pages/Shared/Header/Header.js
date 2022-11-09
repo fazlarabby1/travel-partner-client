@@ -18,7 +18,7 @@ const Header = () => {
     const navItems = <>
         <NavLink className={({ isActive }) => isActive ? 'btn btn-ghost underline underline-offset-4' : 'btn btn-ghost'} to='/'>Home</NavLink>
         <NavLink className={({ isActive }) => isActive ? 'btn btn-ghost underline underline-offset-4' : 'btn btn-ghost'} to='/services'>Services</NavLink>
-        <NavLink className={({ isActive }) => isActive ? 'btn btn-ghost underline underline-offset-4' : 'btn btn-ghost'} to='/blogs'>Blog</NavLink>
+        <NavLink className={({ isActive }) => isActive ? 'btn btn-ghost underline underline-offset-4' : 'btn btn-ghost'} to='/blogs'>Blogs</NavLink>
         {
             user &&
             <>
@@ -42,7 +42,7 @@ const Header = () => {
                     </ul>
                 </div>
                 <Link to='/' className="btn btn-ghost normal-case text-xl">
-                    <img alt="" src={logo} width="80" height="24" />
+                    <img alt="" src={logo} width="100" height="24" />
                 </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
