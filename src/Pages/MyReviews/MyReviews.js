@@ -35,6 +35,8 @@ const MyReviews = () => {
         }
     }
 
+    // const handleReviewUpdate = 
+
     return (
         <div className='mb-10'>
             <h2 className='text-2xl text-center italic underline underline-offset-4'>Your Total Reviews: {reviews.length}</h2>
