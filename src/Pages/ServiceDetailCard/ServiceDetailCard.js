@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { FaStar } from 'react-icons/fa';
 import { Link, useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
 const ServiceDetailCard = () => {
     const service = useLoaderData();
-    console.log(service);
     const { _id, title, image, ratings, details, price } = service;
+    const {user} = useContext(AuthContext);
 
     return (
         <div className='grid gap-5 md:grid-cols-2'>

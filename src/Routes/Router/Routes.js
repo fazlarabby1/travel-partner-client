@@ -42,7 +42,7 @@ export const routes = createBrowserRouter([
             {
                 path: '/provideReview/:id',
                 loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`),
-                element: <ReviewForm></ReviewForm>
+                element: <PrivateRoute><ReviewForm></ReviewForm></PrivateRoute>
             },
             {
                 path: '/login',

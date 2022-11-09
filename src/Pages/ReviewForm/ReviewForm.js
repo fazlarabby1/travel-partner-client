@@ -9,7 +9,7 @@ const ReviewForm = () => {
     return (
         <div className='mb-10'>
             <h2 className='text-center font-semibold text-xl italic underline underline-offset-4 mb-7
-            '>Provide Your Precious Review on <span className='text-red-500'>{title}</span> Please!!!</h2>
+            '>Provide Your Precious Review on <span className='text-primary'>{title}</span> Please!!!</h2>
             <div>
                 <form>
                     <div className='grid grid-cols-1 lg:grid-cols-2 gap-4'>
