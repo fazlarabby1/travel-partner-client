@@ -16,7 +16,7 @@ const BestReviews = () => {
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-2'>
                 {
                     reviews.map(review =>
-                        <div>
+                        <div key={review._id}>
                             <div className="flex flex-col mx-auto p-6 space-y-6 overflow-hidden rounded-lg shadow-lg dark:text-gray-100 border">
                                 <div className='flex justify-between'>
                                     <div className="flex items-center space-x-4">
