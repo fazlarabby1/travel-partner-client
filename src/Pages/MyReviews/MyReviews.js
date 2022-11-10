@@ -18,7 +18,7 @@ const MyReviews = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews?email=${user?.email}`)
+        fetch(`https://assignment-11-server-eosin.vercel.app/reviews?email=${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setReviews(data)
@@ -29,7 +29,7 @@ const MyReviews = () => {
 
         const confirm = window.confirm("Are You Sure?");
         if (confirm) {
-            fetch(`http://localhost:5000/reviews/${id}`, {
+            fetch(`https://assignment-11-server-eosin.vercel.app/reviews/${id}`, {
                 method: 'DELETE',
             })
                 .then(res => res.json())
@@ -59,7 +59,7 @@ const MyReviews = () => {
     const handleReviewUpdate = event => {
         // event.preventDefault();
 
-        fetch(`http://localhost:5000/reviews/${oldReview._id}`, {
+        fetch(`https://assignment-11-server-eosin.vercel.app/reviews/${oldReview._id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
@@ -93,7 +93,7 @@ const MyReviews = () => {
                     </div>
                     :
                     <div className='text-center mt-36 mb-44'>
-                        <p className='text-xl text-warning font-semibold'>You Do Not Any Reviews</p>
+                        <p className='text-xl text-warning font-semibold'>You Do Not Have Any Reviews</p>
                         <p>Visit <Link className='underline text-blue-700 text-2xl' to='/services'>Services</Link> To Add Reviews</p>
                     </div>
             }

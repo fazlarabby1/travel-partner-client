@@ -24,7 +24,7 @@ const AddService = () => {
             details
         }
 
-        fetch('http://localhost:5000/services', {
+        fetch('https://assignment-11-server-eosin.vercel.app/services', {
             method: 'POST',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('travel-token')}`,

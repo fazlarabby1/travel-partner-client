@@ -7,7 +7,7 @@ const ReviewCard = ({ review, handleReviewDelete, getReview }) => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/services/${service}`)
+        fetch(`https://assignment-11-server-eosin.vercel.app/services/${service}`)
             .then(res => res.json())
             .then(data => {
                 setReviewService(data);

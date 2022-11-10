@@ -2,7 +2,10 @@
 
 *********************************
 Live Links and Repository Links
-
+Client Site Live Link: https://travel-partner-101.web.app/
+Client Site Repository Link: https://github.com/Porgramming-Hero-web-course/b6a11-service-review-client-side-fazlarabby1
+Server Site Live Link: https://assignment-11-server-eosin.vercel.app/
+Server Site Repository Link:https://github.com/Porgramming-Hero-web-course/b6a11-service-review-server-side-fazlarabby1
 
 *********************************
 Dependencies

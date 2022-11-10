@@ -1,6 +1,6 @@
 export const setJWTAuthToken = user =>{
     const currentUser ={email: user.email};
-    fetch('http://localhost:5000/jwt',{
+    fetch('https://assignment-11-server-eosin.vercel.app/jwt',{
         method: 'POST',
         headers: {
             'content-type': 'application/json'

@@ -34,7 +34,7 @@ const ReviewForm = () => {
             reviewTime
         }
 
-        fetch('http://localhost:5000/reviews',{
+        fetch('https://assignment-11-server-eosin.vercel.app/reviews',{
             method: 'POST',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('travel-token')}`,

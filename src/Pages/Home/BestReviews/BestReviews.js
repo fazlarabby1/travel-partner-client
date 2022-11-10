@@ -6,7 +6,7 @@ const BestReviews = () => {
     // console.log(bestReviews);
 
     useEffect(() => {
-        fetch('http://localhost:5000/reviewsB')
+        fetch('https://assignment-11-server-eosin.vercel.app/reviewsB')
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [])
