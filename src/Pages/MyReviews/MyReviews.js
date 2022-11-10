@@ -9,6 +9,7 @@ const MyReviews = () => {
     useTitle('My Reviews-')
     const { user } = useContext(AuthContext);
     const [reviews, setReviews] = useState([]);
+    // console.log(reviews);
 
     useEffect(() => {
         fetch(`http://localhost:5000/reviews?email=${user?.email}`)
@@ -18,26 +19,25 @@ const MyReviews = () => {
             })
     }, [user?.email]);
 
-    const handleReviewDelete = id =>{
-       
+    const handleReviewDelete = id => {
+
         const confirm = window.confirm("Are You Sure?");
-        if(confirm){
-            fetch(`http://localhost:5000/reviews/${id}`,{
+        if (confirm) {
+            fetch(`http://localhost:5000/reviews/${id}`, {
                 method: 'DELETE',
             })
-            .then(res => res.json())
-            .then(data => {
-                
-                if(data.deletedCount){
-                    toast.success('Review Deleted Successfully')
-                }
-                const remainingReview = reviews.filter(review => review._id !== id);
-                setReviews(remainingReview);
-            })
+                .then(res => res.json())
+                .then(data => {
+
+                    if (data.deletedCount) {
+                        toast.success('Review Deleted Successfully')
+                    }
+                    const remainingReview = reviews.filter(review => review._id !== id);
+                    setReviews(remainingReview);
+                })
         }
     }
 
-    // const handleReviewUpdate = 
 
     return (
         <div className='mb-10'>
@@ -46,7 +46,11 @@ const MyReviews = () => {
                 (reviews.length > 0) ?
                     <div>
                         {
-                            reviews.sort((a,b)=> a.reviewTime<b.reviewTime ? 1 : -1).map(review => <ReviewCard key={review._id} review={review} handleReviewDelete={handleReviewDelete}></ReviewCard>)
+                            reviews.map(review => <ReviewCard
+                            key={review._id} review={review} handleReviewDelete={handleReviewDelete}
+                            >
+                            </ReviewCard>)
+
                         }
                     </div>
                     :
