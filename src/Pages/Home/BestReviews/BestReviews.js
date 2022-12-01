@@ -17,16 +17,16 @@ const BestReviews = () => {
                 {
                     reviews.map(review =>
                         <div key={review._id}>
-                            <div className="flex flex-col mx-auto p-6 space-y-6 overflow-hidden rounded-lg shadow-lg dark:text-gray-100 border">
+                            <div className="flex flex-col mx-auto p-6 space-y-6 overflow-hidden rounded-lg shadow-lg border">
                                 <div className='flex justify-between'>
                                     <div className="flex items-center space-x-4">
-                                        <img alt="" src={review?.photo} className="object-cover w-12 h-12 rounded-full shadow dark:bg-gray-500" />
+                                        <img alt="" src={review?.photo} className="object-cover w-12 h-12 rounded-full shadow" />
                                         <p className="text-sm font-semibold">{review?.name}</p>
                                     </div>
                                     <p className='flex items-center font-semibold'><FaStar className='text-warning mr-1' />{review?.rating}</p>
                                 </div>
 
-                                <p className="dark:text-gray-400"><span className='text-xl mr-2 underline underline-offset-4 text-info'>Comment: </span> {review?.reviewDetails}</p>
+                                <p><span className='text-xl mr-2 underline underline-offset-4 text-info'>Comment: </span> {review?.reviewDetails}</p>
                             </div>
                         </div>
                     )
