@@ -3,17 +3,22 @@ import toast from 'react-hot-toast';
 import { FaStar } from 'react-icons/fa';
 import { Link, useLoaderData } from 'react-router-dom';
 import ReviewSummary from '../ReviewSummary/ReviewSummary';
+import Loading from '../Shared/Loading/Loading';
 
 const ServiceDetailCard = () => {
     const service = useLoaderData();
     const { _id, title, image, ratings, details, price } = service;
     const [reviews, setReviews] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         fetch(`https://assignment-11-server-eosin.vercel.app/reviews/${_id}`)
             .then(res => res.json())
-            .then(data => setReviews(data))
-    }, [_id])
+            .then(data => {
+                setReviews(data);
+                setLoading(false);
+            })
+    }, [_id]);
 
     return (
         <div className='grid gap-5 md:grid-cols-2'>
@@ -43,7 +48,13 @@ const ServiceDetailCard = () => {
                 </p>
                 <div>
                     {
-                        reviews.sort((a,b)=> a.reviewTime < b.reviewTime ? 1 : -1).map(review => <ReviewSummary key={review._id} review={review}></ReviewSummary>)
+                        loading && 
+                        <div className='flex justify-center'>
+                            <Loading />
+                        </div>
+                    }
+                    {
+                        reviews?.sort((a, b) => a.reviewTime < b.reviewTime ? 1 : -1).map(review => <ReviewSummary key={review._id} review={review}></ReviewSummary>)
                     }
                 </div>
             </div>

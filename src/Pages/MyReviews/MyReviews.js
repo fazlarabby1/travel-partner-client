@@ -4,12 +4,14 @@ import { FaTimesCircle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import useTitle from '../../hooks/useDynamicTitle';
+import Loading from '../Shared/Loading/Loading';
 import ReviewCard from './ReviewCard/ReviewCard';
 
 const MyReviews = () => {
     useTitle('My Reviews-')
     const { user } = useContext(AuthContext);
     const [reviews, setReviews] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     const [oldReview, setOldReview] = useState({});
     const [updateReview, setUpdateReview] = useState(oldReview);
@@ -21,7 +23,8 @@ const MyReviews = () => {
         fetch(`https://assignment-11-server-eosin.vercel.app/reviews?email=${user?.email}`)
             .then(res => res.json())
             .then(data => {
-                setReviews(data)
+                setReviews(data);
+                setLoading(false);
             })
     }, [user?.email]);
 
@@ -80,10 +83,16 @@ const MyReviews = () => {
         <div className='mb-10'>
             <h2 className='text-2xl text-center italic underline underline-offset-4'>Your Total Reviews: {reviews.length}</h2>
             {
-                (reviews.length > 0) ?
+                loading &&
+                <div className='flex justify-center'>
+                    <Loading />
+                </div>
+            }
+            {
+                reviews.length ?
                     <div>
                         {
-                            reviews.sort((a,b)=> a.reviewTime < b.reviewTime ? 1 : -1).map(review => <ReviewCard
+                            reviews.sort((a, b) => a.reviewTime < b.reviewTime ? 1 : -1).map(review => <ReviewCard
                                 key={review._id} review={review} getReview={getReview} handleReviewDelete={handleReviewDelete}
                             >
                             </ReviewCard>)
